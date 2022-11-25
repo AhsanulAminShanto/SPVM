@@ -5,13 +5,18 @@ require("dotenv").config()
 
 const mysql=require("mysql")
 
-// console.log(process.env.PASSWORD)
+console.log(process.env.PASSWORD)
 db.connect(_=>{
 
-    db.query('use Iras',(err,result)=>{
-        console.log(err);
+    db.query("use Iras",(err,result)=>{
+        console.log(err)
+        console.log(result)
     })
+   db.query("select *from shanto",(err,result)=>{
+    console.log(result)
+   })
 })
+
 
 
 // app.use("/",()=>{
