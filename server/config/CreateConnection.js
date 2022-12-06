@@ -3,8 +3,8 @@ require("dotenv").config()
 module.exports=db=mysql.createPool({
                  host:process.env.HOST,
                 // host:process.env.HOST,
-                user:"shanto",
-                password:process.env.PASSWORD,
+                user:"root",
+                password:"",
                 database:process.env.DATABASE
                 
 }

@@ -5,11 +5,11 @@ require("dotenv").config()
 const cors=require("cors")
 const mysql=require("mysql")
 const router=require("./routes/Router")
-
+const bodyParser=require('body-parser')
 // console.log(process.env.PASSWORD)
 db.getConnection(_=>{
 
-    db.query('use Iras',(err,result)=>{
+    db.query('use university',(err,result)=>{
         console.log(err);
 
         // console.log(err.sqlState)
@@ -20,15 +20,15 @@ db.getConnection(_=>{
 
 })
 
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({extended:true,limit: '50mb'}));
+
 app.use(cors())
 app.use("/",router)
 
 // app.use("/",()=>{
 //     console.log("hello ")
 // })
-app.get("/",(req,res)=>{
-    res.send("fuck you")
-})
 
 
 app.listen(4000,()=>{
